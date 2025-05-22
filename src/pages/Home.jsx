@@ -1,8 +1,14 @@
+import React from "react";
+import '../assets/home.css'; // Nous allons créer ce fichier CSS spécifique
+
 function Home() {
   return (
-    <div>
-      <h1>Bienvenue sur SkillUp</h1>
-      <p>Votre plateforme d'apprentissage personnalisée</p>
+    <div className="home-hero">
+      <div className="hero-content">
+        <h1 className="hero-title">Bienvenue sur <span>SkillUp</span></h1>
+        <p className="hero-subtitle">Votre plateforme d'apprentissage personnalisée pour atteindre de nouveaux sommets.</p>
+        <button className="cta-button">Explorer les cours</button>
+      </div>
     </div>
   );
 }

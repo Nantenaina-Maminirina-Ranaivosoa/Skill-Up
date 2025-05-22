@@ -1,0 +1,109 @@
+/* src/pages/Home.css */
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--navbar-height)); /* Pleine hauteur moins la navbar */
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--text-light-color);
+  text-align: center;
+  padding: 2rem;
+  overflow: hidden; /* Pour s'assurer que les animations ne débordent pas bizarrement */
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem; /* Taille de police plus grande */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  animation: slideInFromTop 0.8s ease-out forwards; /* Animation d'entrée */
+}
+
+.hero-title span {
+  color: var(--accent-color); /* Mettre en valeur le nom */
+  /* Ou une autre couleur claire qui contraste bien: */
+  /* color: #f1c40f; */
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  animation: fadeIn 1s ease-in forwards; /* Animation d'entrée */
+  animation-delay: 0.5s; /* Délai pour apparaître après le titre */
+}
+
+.cta-button {
+  background-color: var(--accent-color);
+  color: var(--text-light-color);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 50px; /* Bouton "pilule" */
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideInFromBottom 0.8s ease-out forwards; /* Animation d'entrée */
+  animation-delay: 1s; /* Délai pour apparaître après le sous-titre */
+}
+
+.cta-button:hover {
+  background-color: #c0392b; /* Version plus foncée de l'accent color */
+  transform: translateY(-3px); /* Effet de soulèvement */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Définitions des animations */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Media query pour les écrans plus petits */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}

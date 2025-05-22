@@ -1,0 +1,153 @@
+/* main.css */
+
+/* Importer une police depuis Google Fonts (Exemple: Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Définition des variables de couleurs et de polices */
+:root {
+  --primary-color: #2c3e50; /* Bleu nuit (votre couleur de nav actuelle) */
+  --secondary-color: #3498db; /* Bleu plus clair pour les accents */
+  --accent-color: #e74c3c; /* Rouge/Orange pour les CTA ou éléments importants */
+  --background-color: #ecf0f1; /* Gris clair pour le fond */
+  --text-color: #34495e; /* Couleur de texte principale */
+  --text-light-color: #ffffff; /* Texte sur fonds sombres */
+  --font-family-main: 'Poppins', sans-serif;
+  --navbar-height: 60px; /* Hauteur de la navbar, ajustable */
+  --text-light-color-muted: #bdc3c7; /* Nouvelle variable pour texte clair moins important */
+}
+
+/* Reset de base et styles globaux */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Meilleure gestion des paddings et bordures */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-main);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding-top: var(--navbar-height); /* Pour éviter que le contenu passe sous la navbar fixe */
+}
+
+/* Styles pour la Navbar */
+nav {
+  background: var(--primary-color);
+  color: var(--text-light-color);
+  padding: 0 25px; /* Un peu plus de padding horizontal */
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center; /* Centrage vertical des éléments */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Style pour le "logo" ou nom du site */
+nav .nav-brand {
+  font-size: 1.6rem; /* Plus grand pour le branding */
+  font-weight: 700;
+  color: var(--text-light-color);
+  text-decoration: none;
+  padding: 5px 0; /* Ajustement pour l'alignement vertical si besoin */
+  transition: color 0.3s ease;
+}
+nav .nav-brand:hover {
+  color: var(--secondary-color); /* Changement de couleur au survol */
+  background-color: transparent; /* S'assurer qu'il n'y a pas de fond au survol */
+}
+nav .nav-brand.active { /* Le brand ne devrait pas avoir d'état "actif" visuellement différent */
+    background-color: transparent;
+}
+
+
+/* Conteneur pour les liens de navigation principaux */
+.nav-links-main {
+  display: flex;
+  align-items: center;
+  margin-left: 30px; /* Espace après le brand */
+}
+
+/* Styles généraux pour les liens de navigation (NavLink) */
+.nav-links-main a {
+  color: var(--text-light-color);
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative; /* Pour les pseudo-éléments si on veut des indicateurs plus tard */
+}
+
+.nav-links-main a:hover,
+.nav-links-main a.active { /* Style pour lien actif et survol */
+  background-color: var(--secondary-color);
+  color: var(--text-light-color) !important; /* S'assurer que le texte reste clair */
+}
+
+.nav-links-main a:last-child {
+  margin-right: 0;
+}
+
+/* Conteneur pour les actions utilisateur (poussé à droite) */
+.nav-user-actions {
+  margin-left: auto; /* Pousse ce conteneur complètement à droite */
+  display: flex;
+  align-items: center;
+}
+
+.nav-user-actions .user-greeting {
+  margin-right: 20px;
+  font-size: 0.95rem;
+  color: var(--text-light-color-muted); /* Couleur plus discrète */
+}
+
+/* Styles pour les boutons et liens-boutons dans les actions utilisateur */
+.nav-user-actions .nav-button {
+  display: inline-block; /* Pour que NavLink (qui est <a>) se comporte bien avec padding/margin */
+  background-color: transparent;
+  color: var(--text-light-color);
+  border: 1px solid var(--text-light-color-muted);
+  padding: 8px 18px; /* Padding ajusté */
+  border-radius: 20px; /* Coins plus arrondis pour un look moderne */
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: var(--font-family-main);
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-user-actions .nav-button:hover {
+  background-color: var(--text-light-color);
+  color: var(--primary-color);
+  border-color: var(--text-light-color);
+}
+
+/* Style spécifique pour le bouton "Inscription" (plus d'emphase) */
+.nav-user-actions .register-button {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--text-light-color);
+}
+
+.nav-user-actions .register-button:hover {
+  background-color: #c0392b; /* Accent color plus foncé */
+  border-color: #c0392b;
+  color: var(--text-light-color);
+}
+
+/* Styles pour les conteneurs principaux de page pour un padding cohérent */
+.page-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Centrer le contenu */
+}
